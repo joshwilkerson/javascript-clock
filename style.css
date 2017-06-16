@@ -14,14 +14,19 @@ body {
   align-items: center;
 }
 
+.testBtns {
+	position: absolute;
+	top:10px;
+	left:10px;
+}
+
 .clock {
-  width: 30rem;
-  height: 30rem;
+  width: 360px;
+  height: 360px;
   border:18px solid #fff;
   border-radius:50%;
   margin:50px auto;
   position: relative;
-  padding:2rem;
   box-shadow: -1px 1px 20px rgba(0,0,0,0.1), 0 0 1px 1px #d5d5d5 inset;
   background: #ffffff;
 	background: -moz-radial-gradient(center, ellipse cover, #ececec 0%, #fff 100%);
@@ -46,7 +51,6 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  transform: translateY(-3px);
 }
 
 .hand {
@@ -63,31 +67,32 @@ body {
 }
 
 .hour-hand {
-	width:30%;
+	width:28%;
 	height: 8px;
-	left:20%;
+	left:22%;
+	top:calc(50% - 4px);
 }
 
 .minute-hand {
-	width: 40%;
-	left:10%;
+	width: 36%;
+	left:14%;
+	top:calc(50% - 3px);
+	transition:all 5s ease;
 }
-
-	.minute-hand.slow,
-	.hour-hand.slow {
-		transition:all 50s ease;
-	}
 
 .second-hand {
 	box-shadow: 0 0 2px rgba(0,0,0,0.25);
 	transition:all .1s cubic-bezier(0.1, 1.8, 0.78, 1);
 	background:#dd0000;
 	height: 4px;
+	width: 45%;
+	left:5%;
+	top:calc(50% - 2px);
 }
 
-.second-hand.top {
-	transition: all 0s;
-}
+	.second-hand.reset {
+		transition: all 0s;
+	}
 
 .markers {
 	position: absolute;
@@ -142,10 +147,12 @@ body {
 	transform: rotate(60deg);
 }
 
+
 .markers.rotate1 span,
 .markers.rotate2 span {
 	height: 20px;
-	width: 8px;
+	width: 6px;
 	background:rgba(0,0,0,0.1);
+	margin-top:2px;
 }
-	
+
