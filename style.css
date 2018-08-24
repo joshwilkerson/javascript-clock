@@ -14,19 +14,14 @@ body {
   align-items: center;
 }
 
-.testBtns {
-	position: absolute;
-	top:10px;
-	left:10px;
-}
-
 .clock {
-  width: 360px;
-  height: 360px;
+  width: 30rem;
+  height: 30rem;
   border:18px solid #fff;
   border-radius:50%;
   margin:50px auto;
   position: relative;
+  padding:2rem;
   box-shadow: -1px 1px 20px rgba(0,0,0,0.1), 0 0 1px 1px #d5d5d5 inset;
   background: #ffffff;
 	background: -moz-radial-gradient(center, ellipse cover, #ececec 0%, #fff 100%);
@@ -34,23 +29,38 @@ body {
 	background: radial-gradient(ellipse at center, #ececec 0%,#fff 100%);
 }
 
-.center {
-	display: block;
-	width: 14px;
-	height: 14px;
-	position: absolute;
-	top:50%;
-	left:50%;
-	transform:translateX(-50%) translateY(-50%);
-	background:#dd0000;
-	border-radius: 14px;
-	z-index: 100;
+.markers {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('watch-face.svg') no-repeat;
+  background-size: 100%;
+  background-position: center center;
 }
+
 
 .clock-face {
   position: relative;
   width: 100%;
   height: 100%;
+  transform: translateY(-1%) translateX(-.25%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.clock-face:after {
+  content: '';
+  display: block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top:50.25%;
+	left:50%;
+	transform:translateX(-50%) translateY(-50%);
+	background:#dd0000;
+	border-radius: 14px;
+	z-index: 100;
 }
 
 .hand {
@@ -61,98 +71,30 @@ body {
   top:50%;
   transform-origin: 100%;
   transform:rotate(90deg);
-	transition:all 1s ease;
 	border-radius: 2px;
 	box-shadow: 0 0 2px rgba(0,0,0,0.15);
 }
 
 .hour-hand {
-	width:28%;
+	width:30%;
 	height: 8px;
-	left:22%;
-	top:calc(50% - 4px);
+	left:20.25%;
 }
 
 .minute-hand {
-	width: 36%;
-	left:14%;
-	top:calc(50% - 3px);
-	transition:all 5s ease;
+	width: 40%;
+	left:10.25%;
 }
 
 .second-hand {
 	box-shadow: 0 0 2px rgba(0,0,0,0.25);
-	transition:all .1s cubic-bezier(0.1, 1.8, 0.78, 1);
 	background:#dd0000;
 	height: 4px;
-	width: 45%;
-	left:5%;
-	top:calc(50% - 2px);
+  width: 46%;
+  left: 4%;
 }
 
-	.second-hand.reset {
-		transition: all 0s;
-	}
-
-.markers {
-	position: absolute;
-	top:0;
-	left:0;
-	display: block;
-	width: 100%;
-	height: 100%;
+.clock-face.canMove .hour-hand,
+.clock-face.canMove .minute-hand {
+  transition:all 60s ease;
 }
-
-	.markers span {
-		height: 30px;
-		width: 10px;
-		background:rgba(0,0,0,0.15);
-		position: absolute;
-		border-radius: 2px;
-		display: block;
-		box-shadow: 0 0 5px rgba(0,0,0,0.05) inset;
-	}
-	
-	.markers span:nth-child(1) {
-		top:11px;
-		left:50%;
-		transform: translate(-50%);
-	}
-	
-	.markers span:nth-child(2) {
-		top:47.5%;
-		right:21px;
-		transform:translateX(-47.5%) rotate(90deg);
-		transform-origin: right;
-	}
-	
-	.markers span:nth-child(3) {
-		bottom:11px;
-		left:50%;
-		transform: translate(-50%);
-	}
-	
-	.markers span:nth-child(4) {
-		top:47.5%;
-		left:31px;
-		transform:translateX(-47.5%) rotate(270deg);
-		transform-origin: left;
-	}
-
-.markers.rotate1 {
-	transform: rotate(30deg);
-}
-
-.markers.rotate2 {
-	transform: rotate(60deg);
-}
-
-
-.markers.rotate1 span,
-.markers.rotate2 span {
-	height: 20px;
-	width: 6px;
-	background:rgba(0,0,0,0.1);
-	margin-top:2px;
-}
-
